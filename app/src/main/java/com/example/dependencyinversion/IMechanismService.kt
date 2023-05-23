@@ -4,5 +4,5 @@ import retrofit2.http.GET
 
 interface IMechanismService {
     @GET("posts")
-    suspend fun getPosts(): List<Post>
+    suspend fun getPostsMechanism(): List<Post>
 }

@@ -17,13 +17,14 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
 private val uiScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
-
+//realizes the policy service interface
 class PolicyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         uiScope.launch {
-            val posts = (application as IPolicyService).getPosts()
+            //realizes the policy service interface through the supplied application that is a mechanism
+            val posts = (application as IPolicyService).getPostsPolicy()
             Log.d("post", posts.toString())
             val recycler = findViewById<RecyclerView>(R.id.recycler)
             recycler.adapter = PostsAdapter(posts)

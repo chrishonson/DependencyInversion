@@ -6,6 +6,7 @@ import com.example.dependencyinversion.Post
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+//Utility layer implements the mechanism service interface
 @UiThread
 class Utility : IMechanismService {
     private val retrofit: Retrofit by lazy {
@@ -19,8 +20,8 @@ class Utility : IMechanismService {
         retrofit.create(IMechanismService::class.java)
     }
 
-    override suspend fun getPosts(): List<Post> {
-        return proxy.getPosts()
+    override suspend fun getPostsMechanism(): List<Post> {
+        return proxy.getPostsMechanism()
     }
 
 
